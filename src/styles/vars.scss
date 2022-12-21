@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans:wght@400;700&display=swap');
+@import "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans:wght@400;700&display=swap";
 
 $bg: #F4F5F9;
 $lines: #42567A;
@@ -6,9 +6,8 @@ $main-text: #42567A;
 $slider-accent: #3877EE;
 $accent-first: #5D5FEF;
 $accent-second: #EF5DA8;
-$accent-gradient: linear-gradient(180deg, rgba(56,119,238,1) 0%, rgba(239,93,168,1) 80%);
+$accent-gradient: linear-gradient(180deg, rgb(56 119 238 / 100%) 0%, rgb(239 93 168 / 100%) 80%);
 
 // fonts:
-$main-font: 'PT Sans', sans-serif;
-$accent-font: 'Bebas Neue', cursive;
-
+$main-font: "PT Sans", sans-serif;
+$accent-font: "Bebas Neue", cursive;

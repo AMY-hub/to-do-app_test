@@ -1,42 +1,44 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars";
 
 .controls {
-    color: $main-text;
-    display: grid;
-    grid-template-columns: auto 1fr auto 2fr;
+	display: grid;
+	grid-template-columns: auto 1fr auto 2fr;
+	color: $main-text;
 
-    &Count {
-        font-size: 14px;
-        margin-bottom: 20px;
-        grid-column: 1;
-    }
+	&Count {
+		grid-column: 1;
+		margin-bottom: 20px;
+		font-size: 14px;
+	}
 
-    &Btns {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        grid-column: 1;
-    }
+	&Btns {
+		display: flex;
+		grid-column: 1;
+		align-items: center;
+		justify-content: flex-start;
+	}
 
-    &Btn:first-child {
-        margin-right: 20px;
-    }
+	&Btn:first-child {
+		margin-right: 20px;
+	}
 
-    .sliderPag {
-        position: relative;
-        grid-column: 3;
-        display: none;  
-    }
+	.sliderPag {
+		display: none;
+		position: relative;
+		grid-column: 3;
+	}
 
-    @media screen and (max-width: 525px) {
-        &Count {
-            margin-bottom: 10px;
-        }
-        &Btn:first-child {
-            margin-right: 8px;
-        } 
-        .sliderPag {
-            display: block;  
-        }
-    }
+	@media screen and (max-width: 525px) {
+		&Count {
+			margin-bottom: 10px;
+		}
+
+		&Btn:first-child {
+			margin-right: 8px;
+		}
+
+		.sliderPag {
+			display: block;
+		}
+	}
 }

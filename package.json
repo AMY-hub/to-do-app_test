@@ -2,6 +2,7 @@
   "name": "event-sliders",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://AMY-hub.github.io/events-gallery",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development --open",

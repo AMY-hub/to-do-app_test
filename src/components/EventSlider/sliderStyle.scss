@@ -1,12 +1,12 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars";
 
 .swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
-  background-color: rgba($main-text, $alpha: 0.7);
-  transition: all 300ms;
+	width: 6px;
+	height: 6px;
+	transition: all 300ms;
+	background-color: rgba($main-text, $alpha: 0.7);
 }
 
 .swiper-pagination-bullet-active {
-   background-color: rgba($main-text, $alpha: 1);
+	background-color: rgba($main-text, $alpha: 1);
 }

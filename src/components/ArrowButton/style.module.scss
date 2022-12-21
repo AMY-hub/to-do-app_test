@@ -1,14 +1,14 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars";
 
 .arrowBtn {
-	cursor: pointer;
-	width: 50px;
-	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
+	width: 50px;
+	height: 50px;
 	transition: box-shadow 300ms, opacity 300ms;
+	border-radius: 50%;
+	cursor: pointer;
 
 	@media screen and (max-width: 525px) {
 		width: 25px;
@@ -18,42 +18,46 @@
 			width: 5px;
 			height: 9px;
 		}
-    }
+	}
 }
 
 .arrowBtn.gray {
 	border: 1px solid rgba($main-text, $alpha: 0.5);
+
 	svg {
 		path {
 			stroke: $main-text;
 		}
 	}
 
-	&:hover,&:focus {
+	&:hover,
+	&:focus {
 		box-shadow: 0 0 15px rgba($main-text, $alpha: 0.15);
 	}
 
 	&:disabled {
-		pointer-events: none;
 		opacity: 0.5;
+		pointer-events: none;
 	}
 }
 
 .arrowBtn.blue {
 	box-shadow: 0 0 15px rgba($slider-accent, $alpha: 0.15);
+
 	svg {
 		path {
 			stroke: $slider-accent;
 		}
 	}
 
-	&:hover,&:focus {
+	&:hover,
+	&:focus {
 		box-shadow: 0 0 15px rgba($slider-accent, $alpha: 0.3);
 	}
 
 	&:disabled {
-		pointer-events: none;
 		opacity: 0;
+		pointer-events: none;
 	}
 }
 

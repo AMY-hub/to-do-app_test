@@ -1,25 +1,25 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars";
 
 .slide {
 	max-width: 400px;
 
 	&Title {
 		margin-bottom: 15px;
-		font-size: 25px;
-		line-height: 1.2;
 		color: $slider-accent;
 		font-family: $accent-font;
+		font-size: 25px;
+		line-height: 1.2;
 	}
 
 	&Text {
-		font-size: 20px;
-		line-height: 1.16;
 		color: $main-text;
 		font-family: $main-font;
+		font-size: 20px;
+		line-height: 1.16;
 	}
 
 	@media screen and (max-width: 525px) {
-        max-width: 180px;
+		max-width: 180px;
 
 		&Title {
 			font-size: 16px;
@@ -28,5 +28,5 @@
 		&Text {
 			font-size: 14px;
 		}
-    }
+	}
 }
