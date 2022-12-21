@@ -1,0 +1,42 @@
+@import '../../styles/vars.scss';
+
+.controls {
+    color: $main-text;
+    display: grid;
+    grid-template-columns: auto 1fr auto 2fr;
+
+    &Count {
+        font-size: 14px;
+        margin-bottom: 20px;
+        grid-column: 1;
+    }
+
+    &Btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        grid-column: 1;
+    }
+
+    &Btn:first-child {
+        margin-right: 20px;
+    }
+
+    .sliderPag {
+        position: relative;
+        grid-column: 3;
+        display: none;  
+    }
+
+    @media screen and (max-width: 525px) {
+        &Count {
+            margin-bottom: 10px;
+        }
+        &Btn:first-child {
+            margin-right: 8px;
+        } 
+        .sliderPag {
+            display: block;  
+        }
+    }
+}

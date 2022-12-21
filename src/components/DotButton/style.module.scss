@@ -1,0 +1,36 @@
+@import '../../styles/vars.scss';
+
+.dotBtn {
+	--opacity: 0;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 0;
+	font-size: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	transform: scale(0.11);
+	font-family: $main-font;
+	color: $main-text;
+	background-color: $main-text;
+	border-radius: 50%;
+
+	&_active {
+		position: relative;
+		overflow: visible;
+		
+		&::after {
+			content: attr(data-label);
+			cursor: default;
+			position: absolute;
+			left: 4.75rem;
+			font-size: 1.25rem;
+			line-height: 1.16;
+			font-weight: bold;
+			opacity: var(--opacity);
+		}
+	}
+}
+

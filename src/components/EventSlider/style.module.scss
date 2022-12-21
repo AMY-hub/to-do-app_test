@@ -1,0 +1,71 @@
+@import '../../styles/vars.scss';
+
+.slider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &Wrapper {
+        overflow: hidden;
+        margin-right: 80px;
+        margin-left: 80px;
+    }
+
+    &Topic {
+        display: none;
+    }
+
+    &Slide {
+        width: fit-content;
+    }
+
+    &Pag {
+        background-color: aquamarine;
+    }
+
+    &Nav_prev,&Nav_next {
+        position: absolute;
+        z-index: 10;
+        flex-shrink: 0;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+
+    &Nav_prev {
+        opacity: 0;
+        left: 20px;
+    }
+
+    &Nav_next {
+        right: 20px;
+    }
+
+    @media screen and (max-width: 725px) {
+        &Wrapper {
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+        &Nav_prev,&Nav_next {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 525px) {
+        &Wrapper {
+            margin-right: 0;
+            margin-left: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-top: 1px solid #C7CDD9;
+        }
+
+        &Topic {
+            display: block;
+            position: absolute;
+            top: -25px;
+            left: 0;
+            color: $main-text;
+        }
+    }
+}
