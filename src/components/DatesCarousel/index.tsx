@@ -1,11 +1,14 @@
+import { lazy } from 'react';
 import cn from 'classnames';
 import { useState } from 'react';
 import { useMathMedia } from '../../hooks/useMathMedia';
 import { Countdown } from '../Countdown';
-import { DotsCircle } from '../DotsCircle';
 import { EventSlider } from '../EventSlider';
 import { PeriodControls } from '../PeriodControls';
 import { Title } from '../Title';
+// import { DotsCircle } from '../DotsCircle';
+const DotsCircle = lazy(() => import(/* webpackChunkName: "DotsCircle" */ '../DotsCircle')
+    .then(module => ({ default: module.DotsCircle })));
 import { DatesCarouselProps } from './props';
 
 import styles from './style.module.scss';

@@ -1,11 +1,13 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, './build'),
-        filename: 'bundle.js'
+        filename: '[name].js',
+        chunkFilename: '[name].bundle.js',
     },
     devServer: {
         static: {       
@@ -15,9 +17,10 @@ module.exports = {
         port: 3000,
     },
     devtool: 'inline-source-map',
-    plugins: [ new HTMLWebpackPlugin({
-        template: './public/index.html'
-    }) ],
+    plugins: [ 
+        new HTMLWebpackPlugin({template: './public/index.html'}),
+        new MiniCssExtractPlugin()
+    ],
     module: {
         rules: [
             {
@@ -30,37 +33,34 @@ module.exports = {
             {
                 test: /.(sass|css|scss)$/,
                 use: [
-                {
-                  loader: 'style-loader'
+                    {
+                  loader: MiniCssExtractPlugin.loader,
                 },
                 {
                   loader: 'css-loader',
-                  options: {
-                      sourceMap: true,
-                  }
-              },
-              {
-                  loader: 'postcss-loader',
-                  options: {
-                    postcssOptions: {
-                      plugins: [
-                          'autoprefixer'
-                      ],
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                        plugins: [
+                            'autoprefixer'
+                        ],
+                        }
                     }
-                  }
-              },
-              {
-                loader: 'resolve-url-loader'
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                    sassOptions: {
-                        sourceMap: true,
-                        modules: true  
+                },
+                {
+                    loader: 'resolve-url-loader'
+                },
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sassOptions: {
+                            sourceMap: true,
+                            modules: true  
+                        }
                     }
                 }
-              }
                 ],
             },
             {
@@ -83,6 +83,22 @@ module.exports = {
                 type: 'asset/inline',
             },
         ]
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                reactVendor: {
+                    test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+                    name: 'vendor-react',
+                    chunks: 'all',
+                },
+                corejsVendor: {
+                    test: /[\\/]node_modules[\\/](core-js)[\\/]/,
+                    name: 'vendor-corejs',
+                    chunks: 'all',
+                },
+            }
+        }
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js'],

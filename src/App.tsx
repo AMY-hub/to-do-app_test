@@ -1,5 +1,8 @@
+import { lazy } from 'react';
 import { Container } from './components/Container';
-import { DatesCarousel } from './components/DatesCarousel';
+const DatesCarousel = lazy(() => import(/* webpackChunkName: "DatesCarousel" */ './components/DatesCarousel')
+    .then(module => ({ default: module.DatesCarousel })));
+// import { DatesCarousel } from './components/DatesCarousel';
 import './styles/reset.scss';
 import './App.scss';
 
