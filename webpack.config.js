@@ -12,7 +12,7 @@ module.exports = (env, { mode }) => {
 
     return {
         mode,
-        entry: path.join(__dirname, 'src', 'index.tsx'),
+        entry: './src/index.tsx',
 
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -22,8 +22,8 @@ module.exports = (env, { mode }) => {
         },
 
         output: {
-            publicPath: '/',
-            path: path.resolve(__dirname, 'dist'),
+            publicPath: '/to-do-app_test/',
+            path: path.resolve(__dirname, 'build'),
             filename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
             chunkFilename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
         },
