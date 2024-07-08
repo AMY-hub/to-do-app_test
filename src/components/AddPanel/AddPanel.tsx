@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, memo, SetStateAction, useState } from 'react';
 import { FormEventHandler } from 'react';
 
 import styled from 'styled-components';
@@ -13,7 +13,7 @@ interface Props {
     setTasksList: Dispatch<SetStateAction<Task[]>>;
 }
 
-export const AddPanel = ({ setTasksList }: Props) => {
+const AddPanel = ({ setTasksList }: Props) => {
     const [text, setText] = useState<string>('');
 
     const createTask: FormEventHandler<HTMLFormElement> = (e) => {
@@ -29,17 +29,20 @@ export const AddPanel = ({ setTasksList }: Props) => {
     return (
         <NewTaskForm onSubmit={createTask}>
             <TaskInput
+                data-testid="task-input"
                 type="text"
                 placeholder="Type task text here..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-            <Button disabled={!text.trim()} type="submit">
+            <Button disabled={!text.trim()} type="submit" data-testid="task-submit">
                 Create
             </Button>
         </NewTaskForm>
     );
 };
+
+export default memo(AddPanel);
 
 const NewTaskForm = styled.form`
     display: flex;

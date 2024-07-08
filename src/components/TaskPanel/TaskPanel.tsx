@@ -5,11 +5,11 @@ import styled, { css } from 'styled-components';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { Task } from '../../interface/Task';
 import { appTheme } from '../../styled/appTheme';
-import { AddPanel } from '../AddPanel/AddPanel';
-import { TaskFilter } from '../TaskFilter/TaskFilter';
-import { TaskItem } from '../TaskItem/TaskItem';
+import AddPanel from '../AddPanel/AddPanel';
+import TaskFilter from '../TaskFilter/TaskFilter';
+import TaskItem from '../TaskItem/TaskItem';
 import { Button } from '../ui-kit/buttons/Button';
-import { mediaBreakpointDown, vh, vw } from '../ui-kit/functions/functions';
+import { mediaBreakpointDown, vw } from '../ui-kit/functions/functions';
 import { Text } from '../ui-kit/texts/text';
 
 export const enum FilterOptions {
@@ -85,6 +85,7 @@ export const TaskPanel = () => {
                     {getCountText()}
                 </Text>
                 <Button
+                    data-testid="task-clear"
                     disabled={!tasksList.some((t) => t.done)}
                     onClick={clearCompleted}
                     styles={css`
@@ -113,18 +114,18 @@ const BottomRow = styled.div`
 
 const ListContainer = styled.div`
     max-height: 500px;
-    height: ${vh(400, appTheme.breakpoints.Large)};
+    height: ${vw(300, appTheme.breakpoints.xLarge)};
 
     ${mediaBreakpointDown(appTheme.breakpoints.xMedium)} {
-        height: ${vh(500, appTheme.breakpoints.xMedium)};
+        height: ${vw(300, appTheme.breakpoints.xMedium)};
     }
 
     ${mediaBreakpointDown(appTheme.breakpoints.Tablet)} {
-        height: ${vh(500, appTheme.breakpoints.Tablet)};
+        height: ${vw(300, appTheme.breakpoints.Tablet)};
     }
 
     ${mediaBreakpointDown(appTheme.breakpoints.xMobile)} {
-        height: ${vh(450, appTheme.breakpoints.xMobile)};
+        height: ${vw(300, appTheme.breakpoints.xMobile)};
     }
 `;
 

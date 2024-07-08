@@ -1,7 +1,8 @@
+import { memo } from 'react';
+
 import styled from 'styled-components';
 
 import { FilterOptions } from '../TaskPanel/TaskPanel';
-import { Text } from '../ui-kit/texts/text';
 import { typography } from '../ui-kit/typography/typography';
 
 interface Props {
@@ -9,22 +10,25 @@ interface Props {
     setSelectedOption: (o: FilterOptions) => void;
 }
 
-export const TaskFilter = ({ selectedOption, setSelectedOption }: Props) => {
+const TaskFilter = ({ selectedOption, setSelectedOption }: Props) => {
     return (
         <Container>
             <Option
+                data-testid="filter-all"
                 $selected={selectedOption === FilterOptions.ALL}
                 onClick={() => setSelectedOption(FilterOptions.ALL)}
             >
                 All
             </Option>
             <Option
+                data-testid="filter-completed"
                 $selected={selectedOption === FilterOptions.COMPLETED}
                 onClick={() => setSelectedOption(FilterOptions.COMPLETED)}
             >
                 Completed
             </Option>
             <Option
+                data-testid="filter-active"
                 $selected={selectedOption === FilterOptions.ACTIVE}
                 onClick={() => setSelectedOption(FilterOptions.ACTIVE)}
             >
@@ -33,6 +37,8 @@ export const TaskFilter = ({ selectedOption, setSelectedOption }: Props) => {
         </Container>
     );
 };
+
+export default memo(TaskFilter);
 
 const Container = styled.div`
     display: flex;

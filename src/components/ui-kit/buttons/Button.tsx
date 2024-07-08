@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
 
 import styled, { css, RuleSet } from 'styled-components';
 
@@ -6,15 +6,15 @@ import { appTheme } from '../../../styled/appTheme';
 import { mediaBreakpointDown } from '../functions/functions';
 import { typography } from '../typography/typography';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    children: React.ReactNode;
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    children: ReactNode;
     styles?: RuleSet<object>;
     isWide?: boolean;
     isSuccess?: boolean;
     wideOnBreakPoint?: number;
 }
 
-export const Button = forwardRef(function Button(props: Props, ref?: React.ForwardedRef<HTMLButtonElement>) {
+export const Button = forwardRef(function Button(props: Props, ref?: ForwardedRef<HTMLButtonElement>) {
     const { children, isWide, wideOnBreakPoint, ...rest } = props;
 
     return (

@@ -1,8 +1,10 @@
+import { ButtonHTMLAttributes } from 'react';
+
 import styled, { RuleSet } from 'styled-components';
 
 import { ReactComponent as CloseIcon } from '../../../assets/icons/remove.svg';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     styles?: RuleSet<object>;
 }
 

@@ -22,7 +22,7 @@ module.exports = (env, { mode }) => {
         },
 
         output: {
-            publicPath: '/to-do-app_test/',
+            publicPath: isProduction ? '/to-do-app_test/' : '/',
             path: path.resolve(__dirname, 'build'),
             filename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
             chunkFilename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
