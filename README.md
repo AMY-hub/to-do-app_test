@@ -1,4 +1,4 @@
-## Events Carousel component
+## To Do App project
 
 ### Used: React, SCSS, GSAP, Swiper
 
