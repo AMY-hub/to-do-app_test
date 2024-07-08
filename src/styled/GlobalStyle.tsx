@@ -17,14 +17,14 @@ export const GlobalStyle = createGlobalStyle`
     nav,footer,header,aside{display: block;}
 
     html,body{
-        height: 100%;
-        width: 100%;
-        font-size: 100%;
-        line-height: 1;
         font-size: 14px;
         -ms-text-size-adjust: 100%;
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        background-color: var(--bg);
     }
     input,button,textarea{font-family:inherit;}
 
@@ -41,7 +41,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 

@@ -16,16 +16,20 @@ const MainContainer = styled.main`
     background-color: ${({ theme }) => theme.colors.mainLight};
     max-width: 700px;
     margin: 64px auto;
-    padding: 64px;
+    padding: 34px;
     border-radius: ${({ theme }) => theme.border.l_radius};
     ${mediaBreakpointDown(appTheme.breakpoints.xMedium)} {
         margin: 38px auto;
-        padding: 38px;
+        padding: 32px;
     }
 
     ${mediaBreakpointDown(appTheme.breakpoints.Tablet)} {
         max-width: 100%;
         margin: 24px 16px;
         padding: 24px;
+    }
+
+    ${mediaBreakpointDown(appTheme.breakpoints.xMobile)} {
+        padding: 14px;
     }
 `;

@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 
 import { Task } from '../../interface/Task';
+import { appTheme } from '../../styled/appTheme';
 import { CloseButton } from '../ui-kit/buttons/CloseButton';
+import { mediaBreakpointDown } from '../ui-kit/functions/functions';
 import { Checkbox } from '../ui-kit/inputs/Checkbox';
 import { Text } from '../ui-kit/texts/text';
 
@@ -17,7 +19,7 @@ export const TaskItem = ({ task, changeDone, deleteTask }: Props) => {
     return (
         <ListItem>
             <Label>
-                <Checkbox isCheck={done} onChange={() => changeDone(id)} />
+                <Checkbox isCheck={done} onChange={() => changeDone(id)} data-testid="task-check" />
                 <Text
                     as="p"
                     styles={css`
@@ -27,7 +29,7 @@ export const TaskItem = ({ task, changeDone, deleteTask }: Props) => {
                     {text}
                 </Text>
             </Label>
-            <CloseButton onClick={() => deleteTask(id)} aria-label="Delete task" />
+            <CloseButton onClick={() => deleteTask(id)} aria-label="Delete task" data-testid="task-delete" />
         </ListItem>
     );
 };
@@ -40,10 +42,18 @@ const ListItem = styled.li`
     border: 1px solid ${({ theme }) => theme.colors.accentPale};
     border-radius: ${({ theme }) => theme.border.s_radius};
     padding: 12px;
+
+    ${mediaBreakpointDown(appTheme.breakpoints.xMobile)} {
+        padding: 8px;
+    }
 `;
 
 const Label = styled.label`
     display: flex;
     align-items: center;
     gap: 12px;
+
+    ${mediaBreakpointDown(appTheme.breakpoints.xMobile)} {
+        gap: 8px;
+    }
 `;

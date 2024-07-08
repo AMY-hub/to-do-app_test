@@ -23,6 +23,5 @@ function App() {
 export default App;
 
 const Container = styled.div`
-    background-color: ${({ theme }) => theme.colors.bg};
     padding-bottom: 40px;
 `;

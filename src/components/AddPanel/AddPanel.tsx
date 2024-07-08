@@ -29,12 +29,13 @@ export const AddPanel = ({ setTasksList }: Props) => {
     return (
         <NewTaskForm onSubmit={createTask}>
             <TaskInput
+                data-testid="task-input"
                 type="text"
                 placeholder="Type task text here..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-            <Button disabled={!text.trim()} type="submit">
+            <Button disabled={!text.trim()} type="submit" data-testid="task-submit">
                 Create
             </Button>
         </NewTaskForm>
