@@ -25,25 +25,25 @@ export const TaskPanel = () => {
     const tasksLeft = useMemo(() => tasksList.filter((t) => !t.done).length, [tasksList]);
 
     const clearCompleted = useCallback(() => {
-        setTasksList(tasksList.filter((task) => task.done !== true));
-    }, [setTasksList, tasksList]);
+        setTasksList((prevTasks) => prevTasks.filter((task) => !task.done));
+    }, [setTasksList]);
 
     const deleteTask = useCallback(
         (id: string) => {
-            setTasksList(tasksList.filter((task) => task.id !== id));
+            setTasksList((prevTasks) => prevTasks.filter((task) => task.id !== id));
         },
-        [setTasksList, tasksList]
+        [setTasksList]
     );
 
     const changeDone = useCallback(
         (id: string) => {
-            setTasksList(
-                tasksList.map((task) => {
+            setTasksList((prevTasks) =>
+                prevTasks.map((task) => {
                     return task.id === id ? { ...task, done: !task.done } : task;
                 })
             );
         },
-        [setTasksList, tasksList]
+        [setTasksList]
     );
 
     const renderTasks = () => {

@@ -40,7 +40,12 @@ describe('TaskPanel', () => {
         render(<TaskPanel />);
         fireEvent.click(screen.getByTestId('task-check'));
 
-        expect(setTasksList).toHaveBeenCalledWith(expect.objectContaining(expectedTasks));
+        expect(setTasksList).toHaveBeenCalledWith(expect.any(Function));
+
+        const clearCompletedFunction = setTasksList.mock.calls[0][0];
+        const updatedTasks = clearCompletedFunction(initialTasks);
+
+        expect(updatedTasks).toEqual(expectedTasks);
     });
 
     it('can delete tasks', () => {
@@ -51,7 +56,7 @@ describe('TaskPanel', () => {
         render(<TaskPanel />);
         fireEvent.click(screen.getByTestId('task-delete'));
 
-        expect(setTasksList).toHaveBeenCalledWith(expect.objectContaining([]));
+        expect(setTasksList).toHaveBeenCalledWith(expect.arrayContaining([]));
     });
 
     it('can display counter', () => {
@@ -115,6 +120,11 @@ describe('TaskPanel', () => {
         render(<TaskPanel />);
         fireEvent.click(screen.getByTestId('task-clear'));
 
-        expect(setTasksList).toHaveBeenCalledWith(expect.objectContaining(expectedTasks));
+        expect(setTasksList).toHaveBeenCalledWith(expect.any(Function));
+
+        const clearCompletedFunction = setTasksList.mock.calls[0][0];
+        const updatedTasks = clearCompletedFunction(initialTasks);
+
+        expect(updatedTasks).toEqual(expectedTasks);
     });
 });
